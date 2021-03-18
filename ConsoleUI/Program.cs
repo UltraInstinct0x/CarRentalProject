@@ -49,33 +49,34 @@ namespace ConsoleUI
             {
                 Console.WriteLine(color.Name);
             }
-
-            Console.WriteLine($"\n" + $"---- Addition of a new car to the list. ----");
-            //carManager.Add(new Car() { BrandId = 3, ColorId = 3, DailyPrice = 400, Description = "Tesla Model T", Id = 5, ModelYear = 2018 });
-            Console.WriteLine("---- New listing after the addition. ----");
-            foreach (Car car in carManager.GetAll())
-            {
-                Console.WriteLine("Name: "+car.Description +" Daily Fee: " +car.DailyPrice +" Model Year: " + car.ModelYear);
-            }
-
             Console.WriteLine($"\n" + $"---- Removal of a car from the list. ----");
-            //carManager.Delete(new Car{BrandId = 1,ColorId = 2,DailyPrice = 190,Description = "Mini Countryman",Id = 1,ModelYear = 2018});
+            carManager.Delete(new Car { Id = 5});
             Console.WriteLine("---- New listing after the removal. ----");
             foreach (Car car in carManager.GetAll())
             {
                 Console.WriteLine("Name: "+car.Description +" Daily Fee: " +car.DailyPrice +" Model Year: " + car.ModelYear);
             }
 
+            Console.WriteLine($"\n" + $"---- Addition of a new car to the list. ----");
+            carManager.Add(new Car() { BrandId = 2, ColorId = 1, DailyPrice = 421, Description = "Space X SN10", Id = 5, ModelYear = 2020 });
+            Console.WriteLine("---- New listing after the addition. ----");
+            foreach (Car car in carManager.GetAll())
+            {
+                Console.WriteLine("Name: "+car.Description +" Daily Fee: " +car.DailyPrice +" Model Year: " + car.ModelYear);
+            }
+
+            //carManager.Delete(new Car{BrandId = 1,ColorId = 2,DailyPrice = 190,Description = "Mini Countryman",Id = 1,ModelYear = 2018});
+
             Console.WriteLine($"\n" + $"---- Edit of car info. ----");
-            //carManager.Update(new Car{BrandId = 2,ColorId = 1,DailyPrice = 229,Description = "Volkswagen Polo",Id = 2,ModelYear = 2017});
+            carManager.Update(new Car{BrandId = 2,ColorId = 1,DailyPrice = 229,Description = "Volkswagen Golf",Id = 2,ModelYear = 2017});
             Console.WriteLine("---- New listing after the edit of car info. ----");
             foreach (Car car in carManager.GetAll())
             {
                 Console.WriteLine("Name: "+car.Description +" Daily Fee: " +car.DailyPrice +" Model Year: " + car.ModelYear);
             }
 
-            Console.WriteLine("\n****GetCarsByBrandId with 3****");
-            foreach (var VARIABLE in carManager.GetCarsByBrandId(3))
+            Console.WriteLine("\n****GetCarsByBrandId with 2****");
+            foreach (var VARIABLE in carManager.GetCarsByBrandId(2))
             {
                 Console.WriteLine(VARIABLE.Description);
             }
@@ -88,6 +89,29 @@ namespace ConsoleUI
 
             Console.WriteLine($"\n" + $"Hatalı bilgiyle araç ekleme denemesi.");
             carManager.Add(new Car(){Id = 6,BrandId = 1,ColorId = 3,DailyPrice = 0,Description = "A",ModelYear = 2015});
+
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine(car.CarName + "**" + car.BrandName + "**" + car.ColorName + "**" + car.DailyPrice);
+            }
+
+            Console.WriteLine("\n***Color and Brand Edit along with Removal Happens Here***" +
+                              "\n New lists of colors and brands afterwards.");
+            colorManager.Delete(new Color(){Id = 2});
+            colorManager.Update(new Color(){Id = 1,Name = "Yellow"});
+
+            brandManager.Delete(new Brand(){Id = 1});
+            brandManager.Update(new Brand(){Id = 2,Name = "AUDI"});
+
+            foreach (var c in colorManager.GetAll())
+            {
+                Console.WriteLine(c.Id + c.Name);
+            }
+
+            foreach (var b in brandManager.GetAll())
+            {
+                Console.WriteLine(b.Id + b.Name);
+            }
         }
     }
 }
