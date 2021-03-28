@@ -24,6 +24,11 @@ namespace Business.Concrete
                 GenericMessages<Rental>.ObjHandler + Messages.SListed);
         }
 
+        public IDataResult<Rental> GetById(int id)
+        {
+            return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.Id == id),GenericMessages<Rental>.ObjHandler+Messages.IsListed);
+        }
+
         public IResult Add(Rental rental)
         {
             if (_rentalDal.GetAll(r=>r.CarId == rental.CarId && r.ReturnDate == null).Count >= 1)

@@ -23,6 +23,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(),GenericMessages<Customer>.ObjHandler+Messages.SListed);
         }
 
+        public IDataResult<Customer> GetById(int id)
+        {
+            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.Id == id));
+        }
+
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);

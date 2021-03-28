@@ -14,5 +14,6 @@ namespace Business.Constants
         public static string IsDeleted = " is deleted.";
         public static string IsUpdated = " is updated.";
         public static string NotAvailable = " unit is not available.";
+        public static string IsListed = " is listed.";
     }
 }

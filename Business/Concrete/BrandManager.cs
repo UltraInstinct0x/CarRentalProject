@@ -24,6 +24,12 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),GenericMessages<Brand>.ObjHandler+Messages.SListed);
         }
 
+        public IDataResult<Brand> GetById(int id)
+        {
+            return new SuccessDataResult<Brand>(_brandDal.Get(b => b.Id == id),GenericMessages<Brand>.ObjHandler+
+                                                                               Messages.IsListed);
+        }
+
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);

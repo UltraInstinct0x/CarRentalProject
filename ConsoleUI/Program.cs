@@ -64,11 +64,11 @@ namespace ConsoleUI
 
 
             var RentalResult = rentalManager.Add(new Rental()
-            { Id = 2, CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 03, 11), ReturnDate= null });
+            { Id =3, CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 03, 11), ReturnDate= null });
             Console.WriteLine(RentalResult.Message);
             
             rentalManager.Update(new Rental() {Id = 2, CarId = 2, CustomerId = 1,RentDate = default,ReturnDate = new DateTime(2021, 03, 15)});
-            var SecondRentalResult = rentalManager.Add(new Rental() {Id = 4, CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 03, 01)});
+            var SecondRentalResult = rentalManager.Add(new Rental() {Id = 2, CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 03, 01)});
             Console.WriteLine(SecondRentalResult.Message);
 
             Console.WriteLine("List of Rentals");

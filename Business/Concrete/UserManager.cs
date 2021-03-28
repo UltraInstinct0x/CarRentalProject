@@ -23,6 +23,12 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll(),GenericMessages<User>.ObjHandler+Messages.SListed);
         }
 
+        public IDataResult<User> GetById(int id)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Id == id),
+                GenericMessages<User>.ObjHandler+Messages.IsListed);
+        }
+
         public IResult Add(User user)
         {
             _userDal.Add(user);

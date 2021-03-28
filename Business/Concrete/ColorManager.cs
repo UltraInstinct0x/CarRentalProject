@@ -22,6 +22,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll(),GenericMessages<Color>.ObjHandler+Messages.SListed);
         }
 
+        public IDataResult<Color> GetById(int id)
+        {
+            return new SuccessDataResult<Color>(_colorDal.Get(c => c.Id == id),GenericMessages<Color>.ObjHandler+Messages.IsListed);
+        }
+
         public IResult Add(Color color)
         {
             _colorDal.Add(color);
