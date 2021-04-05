@@ -1,5 +1,6 @@
 ﻿using System;
 using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
@@ -47,16 +48,16 @@ namespace ConsoleUI
 
 
 
-            User user = new User()
-            {
-                Id = 2,
-                FirstName = "SecondUser",
-                LastName = "LastNameOfThem",
-                Email = "smt123@smtmail.com",
-                Password = "1231425"
-            };
-            var UserAddResult = userManager.Add(user);
-            Console.WriteLine(UserAddResult.Message);
+            //User user = new User()
+            //{
+            //    Id = 2,
+            //    FirstName = "SecondUser",
+            //    LastName = "LastNameOfThem",
+            //    Email = "smt123@smtmail.com",
+            //    Password = "1231425"
+            //};
+            //var UserAddResult = userManager.Add(user);
+            //Console.WriteLine(UserAddResult.Message);
 
             var CustomerAddResult =
                 customerManager.Add(new Customer() {Id = 2, CompanyName = "Somee Logistics",UserId = 2});
