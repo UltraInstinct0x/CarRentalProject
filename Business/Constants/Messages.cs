@@ -21,5 +21,6 @@ namespace Business.Constants
         public static string LoginSuccessful = "Login is successful.";
         public static string AlreadyExists = " is already exists.";
         public static string AccessTokenCreated = "Access Token is successfully created.";
+        public static string AuthorizationDenied ="Auth denied.";
     }
 }
