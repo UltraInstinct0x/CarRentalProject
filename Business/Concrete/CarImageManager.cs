@@ -23,7 +23,6 @@ namespace Business.Concrete
         {
             _carImageDal = carImageDal;
         }
-        [ValidationAspect(typeof(CarImageValidator))]
 
         public IDataResult<List<CarImage>> GetCarImages(int carId)
         {
@@ -40,9 +39,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
 
-        public IDataResult<CarImage> Get(int imageId)
+        public IDataResult<CarImage> Get(int id)
         {
-            return new SuccessDataResult<CarImage>(_carImageDal.Get(i => i.Id == imageId));
+            return new SuccessDataResult<CarImage>(_carImageDal.Get(i => i.Id == id));
         }
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage image)
