@@ -7,6 +7,10 @@ namespace Business.Constants
 {
     public abstract class Messages
     {
+        public static string creditCardAdded = "Credit card is added.";
+        public static string creditCardDeleted = "Credit card is deleted.";
+        public static string FindeksNotEnoughForCar = "Findeks score is not enough to rent this car.";
+        public static string FindeksNotFound = "Findeks score is missing.";
         public static string IsAdded = " is added.";
         public static string NameInvalid = " name is invalid.";
         public static string FailureMessage = "A failure happened.";
