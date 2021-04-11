@@ -48,7 +48,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.Id == carId));
         }
 
-        [SecuredOperation("admin,car.add")]
+        //[SecuredOperation("admin,car.add")]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
