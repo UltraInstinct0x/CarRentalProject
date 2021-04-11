@@ -10,8 +10,6 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Route("api/[controller]")]
-    [ApiController]
     public class FindeksController : Controller
     {
         private readonly IFindeksService _findeksService;
