@@ -17,6 +17,7 @@ namespace Entities.DTOs
         public int ModelYear { get; set; }
         public string CompanyName { get; set; }
         public DateTime RentDate { get; set; }
+        public DateTime RentDateEnd { get; set; }
         public DateTime? ReturnDate { get; set; }
         public string Description { get; set; }
     }

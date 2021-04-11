@@ -101,5 +101,17 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+        [HttpPost("isavailable")]
+        public IActionResult IsAvailable(Rental rental)
+        {
+            var result = _rentalService.IsAvailable(rental);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
     }
 }

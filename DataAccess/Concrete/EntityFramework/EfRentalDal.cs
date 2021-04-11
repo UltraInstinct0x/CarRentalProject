@@ -36,7 +36,8 @@ namespace DataAccess.Concrete.EntityFramework
                         DailyPrice = c.DailyPrice,
                         Id = r.Id,
                         Description = c.Description,
-                        ModelYear = c.ModelYear
+                        ModelYear = c.ModelYear,
+                        RentDateEnd = r.RentDateEnd,
                     };
                 return filter==null ? result.ToList() : result.Where(filter).ToList();
             }

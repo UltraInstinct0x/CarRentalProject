@@ -82,10 +82,10 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ColorName == name));
         }
 
-        public IDataResult<List<CarDetailDto>> GetCarDetailsByBrandNameAndColorName(string brandName, string colorName)
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByBrandNameAndColorName(string brand, string color)
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c =>
-                c.BrandName == brandName && c.ColorName == colorName));
+                c.BrandName == brand && c.ColorName == color));
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetailsByBrandName(string name)

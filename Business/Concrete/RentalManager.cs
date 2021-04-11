@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Business.Abstract;
 using Business.Constants;
@@ -63,6 +64,21 @@ namespace Business.Concrete
         public IDataResult<List<RentalDetailDto>> GetRentalDetailsByCarId(int carId)
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails(r=>r.CarId == carId));
+        }
+
+        public IResult IsAvailable(Rental rental)
+        {
+            var result = _rentalDal.GetAll(r => r.CarId == rental.CarId);
+
+            if (result.Any(r =>
+                r.RentDateEnd >= result[0].RentDate &&
+                r.RentDate <= result[0].RentDateEnd
+            ))
+            {
+                return new ErrorResult(GenericMessages<Rental>.ObjHandler+Messages.NotAvailable);
+            }
+
+            return new SuccessResult();
         }
     }
 }
